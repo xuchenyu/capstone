@@ -2,19 +2,20 @@
 <title> History of Divvy Bikes </title>
 <link rel=stylesheet type=text/css href='{{ url_for('static', filename='style.css') }}'>
 <div class=page>
-  <h1> Please Enter the ID Number of the Divvy Bike You Like to Study: </h1>
-  <div class=metanav>
+    <h1> Please Enter the ID Number of the Divvy Bike You Like to Show Data of: </h1>
+    <div class=metanav>
       
-    <form id='userinput' method='post' action='graph'>
-      <p>
-    Bike ID: <input type='text' name='bikeid' value='1234'>
-          <input type='submit' name='submit' value='Submit'>
-      </p>
-      <p>
-    Or randomly generate one for me: 
-          <input type='submit' name='generate' value='Generate'>
-      </p>
-    </form>
+        <form id='userinput' method='post' action='graph'>
+            <p>
+            Bike ID: <input type='text' name='bikeid' value='1234'>
+            <input type='submit' name='submit' value='Submit'>
+            </p>
+            <p>
+            Or randomly generate one for me: 
+            <input type='submit' name='generate' value='Generate'>
+            </p>
+        </form>
+        <img src="../static/divvy.jpg" style="width:540px;height:360px;">
       
-  </div>
+    </div>
 </div>

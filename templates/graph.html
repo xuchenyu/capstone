@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title> Travel History of Divvy Bikes </title>
+        <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.9.3.min.css">
+        <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.9.3.min.js"></script>
+        <h2><a href='{{url_for('index')}}'> Home </a></h2>
+        {{script_months|safe}}
+        {{script_clusters|safe}}
+    </head>
+    <body>
+        <h1> Travel History: </h1>
+        <font size="4">
+            Bike #{{bikeid}} made {{n_trips}} trips in 2014.
+        </font>
+        <div>
+            <font size="4">
+                <p>
+                    <b> Temporal Distribution: </b> seasonal effect is very obvious.
+                </p>
+                {{div_months|safe}}
+                <p>
+                    <b> Spatial Distribution: </b> use K-Means Clustering to group stations into 9 areas.
+                </p>
+                {{div_clusters|safe}}
+            </font>
+        </div>
+        <h1> Maintenance: </h1>
+        <font size="4">
+            <p>
+                 Unfortunately, the bike maintenance data are not publicly available! <br>
+            </p>
+            <p>
+                <b> My Approach to This Problem: </b> <br>
+            </p>
+            <p>                
+                The time interval between two consecutive trips of a same bike 
+                follows the exponential distribution. <br>
+                Using 2.5 million trips, I'm able to find the time constant 
+                of the exponential decay to be about 1.5 hours. <br>
+                If the time interval between two trips are significantly longer than 1.5 hours, 
+                I assume there's a maintenance record between these two trips.
+            </p>
+            <img src="../static/time_intervals.png" style="width:450px;height:330x;">
+            <img src="../static/hist_maints.png" style="width:450px;height:330px;">
+            <p>
+                Bike #{{bikeid}} had {{n_maints}} maintenances in 2014.
+            </p>
+            <p>
+                <b> Machine Learning Models: </b>
+            </p>
+            <p>
+                1. Maintenances vs Trips in 12 months: <br>
+                The best "month model" predicts Bike #{{bikeid}} to have {{n_maints_month}} maintentances in 2014.
+            </p>
+            <img src="../static/month_model_mse.png" style="width:450px;height:330px;">
+            <img src="../static/month_model_coef.png" style="width:450px;height:330px;">
+            <p>
+                2. Maintenances vs Trips in 9 areas: <br>
+                The best "area model" predicts Bike #{{bikeid}} to have {{n_maints_area}} maintentances in 2014.
+            </p>
+            <img src="../static/area_model_mse.png" style="width:450px;height:330px;">
+            <img src="../static/area_model_coef.png" style="width:450px;height:330px;">
+        </font>
+        <h2><a href='{{url_for('index')}}'> Home </a></h2>
+    </body>
+</html>

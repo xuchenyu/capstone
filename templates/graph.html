@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title> Travel History of Divvy Bikes </title>
+        <title> Study of Divvy Bikes </title>
         <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.9.3.min.css">
         <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.9.3.min.js"></script>
         <h2><a href='{{url_for('index')}}'> Home </a></h2>
@@ -11,8 +11,8 @@
     </head>
     <body>
         <h1> Travel History: </h1>
-        <font size="4">
-            Bike #{{bikeid}} made {{n_trips}} trips in 2014.
+        <font size="4" color=#377ba8>
+            <b> Bike #{{bikeid}} made {{n_trips}} trips in 2014. </b>
         </font>
         <div>
             <font size="4">
@@ -21,7 +21,7 @@
                 </p>
                 {{div_months|safe}}
                 <p>
-                    <b> Spatial Distribution: </b> use K-Means Clustering to group stations into 9 areas.
+                    <b> Spatial Distribution: </b> K-Means Clustering is used to group stations into 9 areas.
                 </p>
                 {{div_clusters|safe}}
             </font>
@@ -45,20 +45,26 @@
             <img src="../static/time_intervals.png" style="width:450px;height:330x;">
             <img src="../static/hist_maints.png" style="width:450px;height:330px;">
             <p>
-                Bike #{{bikeid}} had {{n_maints}} maintenances in 2014.
+                <font color=#377ba8>
+                    <b> Bike #{{bikeid}} had {{n_maints}} maintenances in 2014. </b>
+                </font>
             </p>
             <p>
                 <b> Machine Learning Models: </b>
             </p>
             <p>
-                1. Maintenances vs Trips in 12 months: <br>
-                The best "month model" predicts Bike #{{bikeid}} to have {{n_maints_month}} maintentances in 2014.
+                1. "Month Model": maintenances vs trips in 12 months <br>
+                <font color=#377ba8>
+                    <b> The best regressor predicts Bike #{{bikeid}} to have {{n_maints_month}} maintentances in 2014. </b>
+                </font>
             </p>
             <img src="../static/month_model_mse.png" style="width:450px;height:330px;">
             <img src="../static/month_model_coef.png" style="width:450px;height:330px;">
             <p>
-                2. Maintenances vs Trips in 9 areas: <br>
-                The best "area model" predicts Bike #{{bikeid}} to have {{n_maints_area}} maintentances in 2014.
+                2. "Area Model": maintenances vs trips in 9 areas <br>
+                <font color=#377ba8>
+                    <b> The best regressor predicts Bike #{{bikeid}} to have {{n_maints_area}} maintentances in 2014. </b>
+                </font>
             </p>
             <img src="../static/area_model_mse.png" style="width:450px;height:330px;">
             <img src="../static/area_model_coef.png" style="width:450px;height:330px;">

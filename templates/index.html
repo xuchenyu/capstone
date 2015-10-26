@@ -1,18 +1,22 @@
 <!doctype html>
-<title> History of Divvy Bikes </title>
+<title> Study of Divvy Bikes </title>
 <link rel=stylesheet type=text/css href='{{ url_for('static', filename='style.css') }}'>
 <div class=page>
-    <h1> Please Enter the ID Number of the Divvy Bike You Like to Show Data of: </h1>
+    <h1> Please Enter a Divvy Bike ID: </h1>
     <div class=metanav>
       
         <form id='userinput' method='post' action='graph'>
             <p>
+                <font size=4>
             Bike ID: <input type='text' name='bikeid' value='1234'>
             <input type='submit' name='submit' value='Submit'>
+                </font>
             </p>
             <p>
+                <font size=4>
             Or randomly generate one for me: 
             <input type='submit' name='generate' value='Generate'>
+                </font>
             </p>
         </form>
         <img src="../static/divvy.jpg" style="width:540px;height:360px;">
